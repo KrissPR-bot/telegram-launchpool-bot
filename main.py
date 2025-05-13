@@ -2,11 +2,13 @@ import os
 import asyncio
 from telethon import TelegramClient, events
 
+api_id = int(os.getenv("TG_API_ID"))
+api_hash = os.getenv("TG_API_HASH")
 bot_token = os.getenv("TG_BOT_TOKEN")
 receiver = os.getenv("TG_RECEIVER")
 keywords = ['launchpool', 'lauchpool', 'launchpool!']
 
-client = TelegramClient('session_bot', api_id=12345, api_hash='dummy')  # нужны фиктивные значения
+client = TelegramClient('session_bot', api_id=api_id, api_hash=api_hash)
 
 async def main():
     await client.start(bot_token=bot_token)
